@@ -1,8 +1,13 @@
 {
   "headers": {
-    "/Build/*": {
-      "Cache-Control": "no-cache, no-store, must-revalidate",
+    "/Build/*.wasm": {
       "Content-Type": "application/wasm"
+    },
+    "/Build/*.js": {
+      "Content-Type": "application/javascript"
+    },
+    "/Build/*.data": {
+      "Content-Type": "application/octet-stream"
     }
   }
 }
