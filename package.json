@@ -1,13 +1,15 @@
 {
-  "name": "flappy-bobr",
-  "version": "1.0.0",
-  "description": "Flappy Bobr Unity WebGL Game",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
+  "root": ".",
+  "clean_urls": true,
+  "routes": {
+    "/**": "index.html"
   },
-  "dependencies": {
-    "express": "^4.18.2"
+  "headers": {
+    "/Build/*": {
+      "Cache-Control": "no-cache, no-store, must-revalidate"
+    },
+    "/TemplateData/*": {
+      "Cache-Control": "no-cache, no-store, must-revalidate"
+    }
   }
 }
-
