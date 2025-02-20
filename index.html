@@ -46,8 +46,9 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build";
+      var buildUrl = "https://flappyboberkurwa-production.up.railway.app/Build";
       var loaderUrl = buildUrl + "/Bobr.loader.js";
+
       var config = {
         arguments: [],
         dataUrl: buildUrl + "/Bobr.data",
@@ -59,7 +60,6 @@
         productVersion: "1.0",
         showBanner: unityShowBanner,
 
-        // Добавлена функция locateFile для корректной загрузки файлов
         locateFile: function(file) {
             return buildUrl + "/" + file;
         },
