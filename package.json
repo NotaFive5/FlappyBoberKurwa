@@ -1,0 +1,14 @@
+{
+  "name": "flappyboberkurwa",
+  "version": "1.0.0",
+  "description": "WebGL-игра Unity на Railway",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s . -l 3000"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  },
+  "author": "NotaFive5",
+  "license": "MIT"
+}
