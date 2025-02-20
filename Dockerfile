@@ -1,14 +1,26 @@
-# Используем базовый образ Nginx
-FROM nginx:alpine
+# Используем базовый образ с поддержкой Node.js и nginx
+FROM node:16 AS build-stage
 
-# Копируем статические файлы в контейнер
+# Устанавливаем рабочую директорию
+WORKDIR /app
+
+# Копируем файлы проекта
 COPY . /app
 
-# Копируем кастомный конфиг Nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Устанавливаем зависимости
+RUN npm install -g serve
 
-# Открываем порт 80
+# Устанавливаем nginx для раздачи статики
+FROM nginx:alpine
+
+# Копируем статические файлы из билда
+COPY . /usr/share/nginx/html
+
+# Настраиваем nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Указываем порт, который будет использовать контейнер
 EXPOSE 80
 
-# Запускаем Nginx
+# Запускаем nginx
 CMD ["nginx", "-g", "daemon off;"]
