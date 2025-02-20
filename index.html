@@ -58,6 +58,12 @@
         productName: "FLAPPY BOBR",
         productVersion: "1.0",
         showBanner: unityShowBanner,
+
+        // Добавлена функция locateFile для корректной загрузки файлов
+        locateFile: function(file) {
+            return buildUrl + "/" + file;
+        },
+
         cacheControl: function(e) {
             return (e && (e === config.dataUrl || e.match(/\.bundle/))) 
                 ? "must-revalidate" 
@@ -90,6 +96,7 @@
             unityInstance.SetFullscreen(1);
           };
         }).catch((message) => {
+          console.error(message);
           alert(message);
         });
       };
